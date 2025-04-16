@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a2d9ff;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    width: 600px;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    /* Centering inside the page */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-container {
+    display: flex;
+    width: 100%;
+}
+
+.left-section {
+    flex: 1;
+    padding: 20px;
+    background: #f7f7f7;
+}
+
+.left-section textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+}
+
+.right-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+
+
+input, select, button {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #1e72c2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #155a99;
+}
+
+.confirm {
+    position: absolute;
+    width: 30%;
+    top: 550px ;
+    left: 35%;
+    
+    text-align: center;
+    margin-top: 15px;
+   font-size: 30px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.confirm-btn {
+    display: inline-block;
+    background-color: #1e72c2;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.confirm-btn:hover {
+    background-color: #155a99;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="form-container" onsubmit="sendEmail(event)">
+            <div class="left-section">
+                <textarea id="project" placeholder="Tell me all about yourself" required></textarea>
+            </div>
+            <div class="right-section">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="tel" id="mobile" placeholder="Mobile Number" required>
+                <select id="package" required>
+                    <option value="" disabled selected>Choose a language</option>
+                    <option value="Basic">Java</option>
+                  
+                   
+                    <option value="Standard">Javascript</option>
+                    <option value="Premium">Python</option>
+                
+                </select>
+                <button type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+    <div class="confirm" id="confirmSection" style="display: none;">
+        <p>Email is sent! Confirm here:</p>
+        <a href="success.html" class="confirm-btn">Confirm</a>
+    </div>
+
+    <script>
+        function sendEmail(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form values
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let mobile = document.getElementById("mobile").value;
+            let package = document.getElementById("package").value;
+            let project = document.getElementById("project").value;
+
+            // Construct email subject and body
+            let subject = encodeURIComponent("New Inquiry from " + name);
+            let body = encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nPackage: ${package}\nProject Details: ${project}`
+            );
+
+            // Open mail client
+            window.location.href = `mailto:gayatriraut1106@gmail.com?subject=${subject}&body=${body}`;
+
+            // Show confirmation section
+            document.getElementById("confirmSection").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

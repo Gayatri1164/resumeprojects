@@ -1,0 +1,73 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #c7f2e3;
+    color: #5c5c5c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quiz-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.timer, .question-number {
+    font-size: 18px;
+    font-weight: bold;
+    color:#090030;
+}
+
+.question {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.options {
+    display: flex;
+   
+    flex-direction: column; /* Aligns options in a column */
+    gap: 10px; /* Adds spacing between options */
+    align-items: center; /* Centers options horizontally */
+}
+
+.option {
+    border-radius: 5px;
+    font-size: 20px;
+    width: auto;
+    padding: 10px 30px;
+    margin: 10px; /* Makes options take full width */
+    max-width: 400px; /* Ensures options don't get too wide */
+    text-align: center; 
+    background-color: #e3f6f5;/* Centers text inside the button */
+}
+
+
+.option:hover {
+    background-color: #d5def5;
+   
+   
+}
+
+.next-button {
+    font-size: 20px;
+    margin: 30px;
+    background-color: #9ed9c5;
+    border: none;
+    color: #090030;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.next-button:hover {
+    background-color: #7dace4;
+}
